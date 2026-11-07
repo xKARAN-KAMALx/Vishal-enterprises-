@@ -1,0 +1,6 @@
+{
+  "name": "VS Enterprises Wholesale LED Bulbs",
+  "description": "B2B wholesale portal for VS Enterprises - Manufacturer & distributor of LED bulbs, raw materials, drivers & commercial lighting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

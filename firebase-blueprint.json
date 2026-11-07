@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "Order": {
+      "title": "Order",
+      "description": "Wholesale purchase order submitted by customer",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userName": { "type": "string" },
+        "phone": { "type": "string" },
+        "shopName": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string font" },
+        "pincode": { "type": "string" },
+        "gstin": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "gstAmount": { "type": "number font" },
+        "grandTotal": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "shipped", "delivered", "canceled"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "phone", "items", "grandTotal", "status"]
+    },
+    "ProductItem": {
+      "title": "ProductItem",
+      "description": "Wholesale LED Bulb product catalog item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "modelCode": { "type": "string" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "basePrice": { "type": "number" },
+        "moq": { "type": "number" },
+        "inStock": { "type": "boolean" },
+        "stockCount": { "type": "number" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "name", "category", "basePrice", "moq"]
+    }
+  },
+  "firestore": {
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Collection of wholesale purchase orders"
+    },
+    "/products/{productId}": {
+      "schema": "ProductItem",
+      "description": "Collection of dynamic LED products"
+    }
+  }
+}
